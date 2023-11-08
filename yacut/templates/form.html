@@ -1,7 +1,7 @@
 {% extends "base.html" %} 
 {% block title %} Укорачиватель ссылок # {% endblock %} 
 {% block content %}
-<main>
+  <main>
     <section class="container my-5 px-4">
       <h1 class="text-center"><span style="color:red">Ya</span>Cut</h1>
       <p class="text-center my-4">
@@ -67,7 +67,7 @@
                 {% if messages %}
                   {% for message in messages %}
                     Ваша новая ссылка готова:
-                    <a href="{{ message }}">{{ message }}</a>
+                    <a href="{{ message }}" target="_blank">{{ message }}</a>
                   {% endfor %}
                 {% endif %}
               {% endwith %}

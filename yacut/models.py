@@ -1,5 +1,5 @@
 from datetime import datetime
-from yacut import db
+from . import db, Config
 
 
 class URLMap(db.Model):
@@ -10,14 +10,13 @@ class URLMap(db.Model):
 
     def to_dict(self):
         return dict(
-            url=self.original,
-            short_link=self.short
+            url=self.original, short_link=Config.BASE_LINK + self.short
         )
 
     def from_dict(self, data):
         self.original = data["url"]
-        if 'custom_id' in data:
-            self.short = data['custom_id']
+        if "custom_id" in data:
+            self.short = data["custom_id"]
 
 
 # db.drop_all()
