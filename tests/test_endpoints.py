@@ -2,6 +2,7 @@ import pytest
 
 from yacut.models import URLMap
 
+
 py_url = "https://www.python.org"
 
 

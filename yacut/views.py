@@ -1,5 +1,6 @@
-from . import app, db, Config
-from flask import render_template, flash, redirect, abort
+from flask import abort, flash, redirect, render_template
+
+from . import Config, app, db
 from .forms import LinkForm
 from .models import URLMap
 from .utils import get_unique_short_id

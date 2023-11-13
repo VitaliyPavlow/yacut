@@ -1,5 +1,6 @@
 from datetime import datetime
-from . import db, Config
+
+from . import Config, db
 
 
 class URLMap(db.Model):

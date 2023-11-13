@@ -5,6 +5,7 @@ import pytest
 from dotenv import load_dotenv
 from mixer.backend.flask import mixer as _mixer
 
+
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
