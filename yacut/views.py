@@ -28,6 +28,7 @@ def index_view():
 
 
 @app.route("/<slug>/", methods=["GET"])
+@app.route("/<slug>", methods=["GET"])
 def redirect_link(slug):
     url = URLMap.query.filter_by(short=slug).first()
     if url is not None:

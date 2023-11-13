@@ -6,19 +6,20 @@ from .utils import get_unique_short_id
 
 
 @app.route("/api/id/", methods=["POST"])
+@app.route("/api/id", methods=["POST"])
 def add_short_link():
     data = request.get_json(silent=True)
     if data is None:
-        raise InvalidAPIUsage("Вы отправили пустой запрос :(")
+        raise InvalidAPIUsage("Отсутствует тело запроса")
     if "url" not in data:
-        raise InvalidAPIUsage("В запросе отсутствуют обязательные поля")
+        raise InvalidAPIUsage("'url' является обязательным полем!")
     url = URLMap()
     if "custom_id" not in data:
         url.short = get_unique_short_id()
     else:
         if len(custom_id := data["custom_id"]) > 16:
             raise InvalidAPIUsage(
-                "Длина ссылки должна быть не больше 16 символов."
+                "Указано недопустимое имя для короткой ссылки"
             )
         if URLMap.query.filter_by(short=custom_id).first() is not None:
             raise InvalidAPIUsage(
@@ -32,5 +33,6 @@ def add_short_link():
 
 
 @app.route("/api/id/<slug>/", methods=["GET"])
+@app.route("/api/id/<slug>", methods=["GET"])
 def get_original_link(slug):
     return slug

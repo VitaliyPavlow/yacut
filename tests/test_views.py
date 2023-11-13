@@ -28,7 +28,7 @@ def test_index_form_post(client):
     assert (
         unique_id
     ), "После отправки формы в базе данных должна создаваться новая запись."
-    assert '<a href="http://localhost/py"' in got.data.decode(
+    assert '<a href="http://localhost:5000/py"' in got.data.decode(
         "utf-8"
     ), "После отправки формы на главной странице должна отобразиться созданная ссылка."
 
