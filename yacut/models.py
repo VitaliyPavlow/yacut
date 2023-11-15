@@ -20,5 +20,4 @@ class URLMap(db.Model):
             self.short = data["custom_id"]
 
 
-# db.drop_all()
 db.create_all()
