@@ -14,7 +14,7 @@ def add_short_link():
     if data is None:
         raise InvalidAPIUsage("Отсутствует тело запроса")
     if "url" not in data:
-        raise InvalidAPIUsage('"url" является обязательным полем!')
+        raise InvalidAPIUsage("\"url\" является обязательным полем!")
     url = URLMap()
     if not data.get("custom_id"):
         url.short = get_unique_short_id()
