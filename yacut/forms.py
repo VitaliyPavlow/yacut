@@ -5,7 +5,7 @@ from wtforms.validators import URL, Length, Optional, Regexp
 
 class LinkForm(FlaskForm):
     original_link = URLField(
-        "Укорочаемая ссылка",
+        "Укорачаемая ссылка",
         validators=[Length(1, 256), URL(message="Неправильный URL")],
     )
     custom_id = StringField(
